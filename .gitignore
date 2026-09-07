@@ -1,0 +1,11 @@
+bin/
+obj/
+out/
+logs/
+**/appsettings.Development.json
+**/appsettings.*.local.json
+.vs/
+.vscode/
+*.user
+*.suo
+identificacao.txt
