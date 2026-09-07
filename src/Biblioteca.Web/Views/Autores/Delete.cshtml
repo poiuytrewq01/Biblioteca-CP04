@@ -1,0 +1,28 @@
+@model Biblioteca.Web.Models.Autor
+
+@{
+    ViewData["Title"] = "Excluir autor";
+}
+
+<h1>Excluir autor</h1>
+
+<div class="alert alert-warning">
+    Tem certeza que deseja excluir este autor?
+    @if (Model.Livros.Any())
+    {
+        <strong>Atenção: os @Model.Livros.Count livro(s) associado(s) também serão excluídos.</strong>
+    }
+</div>
+
+<dl class="row">
+    <dt class="col-sm-2">Nome</dt>
+    <dd class="col-sm-10">@Model.Nome</dd>
+
+    <dt class="col-sm-2">Nacionalidade</dt>
+    <dd class="col-sm-10">@(Model.Nacionalidade ?? "-")</dd>
+</dl>
+
+<form asp-action="Delete" asp-route-id="@Model.Id" method="post">
+    <button type="submit" class="btn btn-danger">Confirmar exclusão</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>

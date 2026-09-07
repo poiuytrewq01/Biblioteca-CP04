@@ -1,0 +1,35 @@
+@model Biblioteca.Web.Models.Autor
+
+@{
+    ViewData["Title"] = "Detalhes do autor";
+}
+
+<h1>Detalhes do autor</h1>
+
+<dl class="row">
+    <dt class="col-sm-2">Nome</dt>
+    <dd class="col-sm-10">@Model.Nome</dd>
+
+    <dt class="col-sm-2">Nacionalidade</dt>
+    <dd class="col-sm-10">@(Model.Nacionalidade ?? "-")</dd>
+
+    <dt class="col-sm-2">Livros</dt>
+    <dd class="col-sm-10">
+        @if (Model.Livros.Any())
+        {
+            <ul>
+                @foreach (var livro in Model.Livros)
+                {
+                    <li>@livro.Titulo — R$ @livro.Preco.ToString("N2") (estoque: @livro.QuantidadeEstoque)</li>
+                }
+            </ul>
+        }
+        else
+        {
+            <span class="text-muted">Nenhum livro cadastrado para este autor.</span>
+        }
+    </dd>
+</dl>
+
+<a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Editar</a>
+<a asp-action="Index" class="btn btn-secondary">Voltar</a>

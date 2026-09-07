@@ -1,0 +1,32 @@
+@model Biblioteca.Web.Models.ViewModels.AutorFormViewModel
+
+@{
+    ViewData["Title"] = "Editar autor";
+}
+
+<h1>Editar autor</h1>
+
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+<form asp-action="Edit" asp-route-id="@Model.Id" method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <div class="mb-3">
+        <label asp-for="Nome" class="form-label"></label>
+        <input asp-for="Nome" class="form-control" />
+        <span asp-validation-for="Nome" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Nacionalidade" class="form-label"></label>
+        <input asp-for="Nacionalidade" class="form-control" />
+        <span asp-validation-for="Nacionalidade" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Salvar</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

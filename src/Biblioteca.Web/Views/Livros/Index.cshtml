@@ -1,0 +1,44 @@
+@model IEnumerable<Biblioteca.Web.Models.Livro>
+
+@{
+    ViewData["Title"] = "Livros";
+}
+
+<h1>Livros</h1>
+
+@if (TempData["MensagemSucesso"] is not null)
+{
+    <div class="alert alert-success">@TempData["MensagemSucesso"]</div>
+}
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Novo livro</a>
+</p>
+
+<table class="table table-striped align-middle">
+    <thead>
+        <tr>
+            <th>Título</th>
+            <th>Autor</th>
+            <th>Preço</th>
+            <th>Estoque</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var livro in Model)
+        {
+            <tr>
+                <td>@livro.Titulo</td>
+                <td>@(livro.Autor?.Nome ?? "-")</td>
+                <td>R$ @livro.Preco.ToString("N2")</td>
+                <td>@livro.QuantidadeEstoque</td>
+                <td class="text-nowrap">
+                    <a asp-action="Details" asp-route-id="@livro.Id" class="btn btn-sm btn-outline-secondary">Detalhes</a>
+                    <a asp-action="Edit" asp-route-id="@livro.Id" class="btn btn-sm btn-outline-primary">Editar</a>
+                    <a asp-action="Delete" asp-route-id="@livro.Id" class="btn btn-sm btn-outline-danger">Excluir</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,25 @@
+@model Biblioteca.Web.Models.Livro
+
+@{
+    ViewData["Title"] = "Excluir livro";
+}
+
+<h1>Excluir livro</h1>
+
+<div class="alert alert-warning">Tem certeza que deseja excluir este livro?</div>
+
+<dl class="row">
+    <dt class="col-sm-2">Título</dt>
+    <dd class="col-sm-10">@Model.Titulo</dd>
+
+    <dt class="col-sm-2">Autor</dt>
+    <dd class="col-sm-10">@(Model.Autor?.Nome ?? "-")</dd>
+
+    <dt class="col-sm-2">Preço</dt>
+    <dd class="col-sm-10">R$ @Model.Preco.ToString("N2")</dd>
+</dl>
+
+<form asp-action="Delete" asp-route-id="@Model.Id" method="post">
+    <button type="submit" class="btn btn-danger">Confirmar exclusão</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>
