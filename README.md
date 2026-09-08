@@ -2,7 +2,7 @@
 
 Sistema de Gerenciamento de Biblioteca em **ASP.NET Core MVC (.NET 8)** com **Entity Framework Core** sobre **Oracle**, evoluído com **Health Checks**, **logging estruturado (Serilog + Correlation ID)**, **observabilidade (OpenTelemetry)** e **testes unitários (xUnit + Moq + FluentAssertions)**.
 
-> ⚠️ **Sobre o relacionamento Autor × Livro:** o enunciado do CP04 tem uma inconsistência — o resumo do CP03 e a seção "Requisitos" descrevem **1:N** ("cada autor pode ter vários livros, mas cada livro é associado a um único autor"), mas o parágrafo "1. Objetivo do Projeto" cita **N:N**. Este projeto implementa **1:N**, seguindo a descrição detalhada e literal dos requisitos. Se o professor confirmar que quer N:N, me avise que eu ajusto (é uma mudança pontual: trocar a FK única por uma tabela de junção `AUTOR_LIVRO`).
+>  **Sobre o relacionamento Autor × Livro:** o enunciado do CP04 tem uma inconsistência — o resumo do CP03 e a seção "Requisitos" descrevem **1:N** ("cada autor pode ter vários livros, mas cada livro é associado a um único autor"), mas o parágrafo "1. Objetivo do Projeto" cita **N:N**. Este projeto implementa **1:N**, seguindo a descrição detalhada e literal dos requisitos. Se o professor confirmar que quer N:N, me avise que eu ajusto (é uma mudança pontual: trocar a FK única por uma tabela de junção `AUTOR_LIVRO`).
 
 ## 1. Estrutura do projeto
 
